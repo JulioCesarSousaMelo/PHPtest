@@ -1,4 +1,4 @@
-<form class="row align-items-center" action="" method="POST"> 
+<form class="row align-items-center" action="ConsultarCEP.php" method="POST"> 
   <div class="col-9">
     <input type="text" class="form-control form-control-lg" placeholder="Informe o CEP desejado" require>
   </div>
