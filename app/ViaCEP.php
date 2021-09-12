@@ -5,7 +5,7 @@ namespace App;
 class ViaCEP{
 
     /** 
-     * Método responsável por consultar um CEP na API da ViaCEP
+     * Método responsável por consultar um CEP na API da viaCep
      * @param string $cep
      * @return array 
     */
