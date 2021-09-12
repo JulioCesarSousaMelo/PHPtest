@@ -9,6 +9,8 @@
   💡 Desenvolvedor(a) Full Stack Junior
 </h4>
 
+## :ghost: Autor
+- Júlio César S. Melo.
 
 ## 📝 Sobre o projeto
 Teste de seleção para a  __vaga de Desenvolvedor(a) Full Stack Junior__ na empresa [cd2](https://cd2.com.br).
