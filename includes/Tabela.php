@@ -29,4 +29,4 @@
     </section>
 </main>
 
-<a href="index.php"><button class="btn btn-primary">Nova Pesquisa</button></a>
+<a href="index.php"><button class="btn btn-danger">Nova Pesquisa</button></a>
