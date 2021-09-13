@@ -7,6 +7,7 @@
                         <td>' . $informacaos_cep[localidade] . '</td>
                         <td>' . $informacaos_cep[uf] . '</td>
                     </tr>';
+                    
 ?>
 
 <main>
