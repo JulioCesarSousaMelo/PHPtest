@@ -14,22 +14,19 @@
 
         //VERIFICAR SE JÁ EXISTE ESSE CEP NO BANCO 
         $result = $obj_cep->verificarCEP($cep_form);
-
+        
         if($result){
-            $obj_cep->armazenarAtributos();
-            $obj_cep->exibirCEP();
-        }else{
-            //CONSULTAR NA API, INSERIR NO BANCO E EXIBIR UM CEP
-            $dadosCEP = ViaCEP::consultarCEP($cep_form);
+            //CASO SIM, DEVE RETORNAR O CEP NO BANCO
+            $informacaos_cep = $obj_cep->retornarCepBanco();
 
-            // echo "<pre>";
-            // var_dump($dadosCEP);die;
-            // echo "</pre>";
+        }else{
+            //CASO NÃO, DEVE CONSULTAR NA API, INSERIR NO BANCO e RETORNAR O CEP NO BANCO
+            $dadosCEP = ViaCEP::consultarCEP($cep_form);
 
             if($dadosCEP){
                 $obj_cep->inserirCEP($dadosCEP);
-                $obj_cep->armazenarAtributos();
-                $obj_cep->exibirCEP();
+                $informacaos_cep = $obj_cep->retornarCepBanco();
+                
             }else{
                 echo "<script> 
                         alert('CEP inválido, digite novamente !!!'); 
@@ -42,8 +39,14 @@
     //HEADER
     include __DIR__.'/includes/header.php'; 
 
-    //FORMULÁRIO
-    include __DIR__.'/includes/formulario.php'; 
+    if(!isset($_POST['cep'])){
+        //FORMULÁRIO
+        include __DIR__.'/includes/formulario.php';    
+    }
 
+    if(isset($informacaos_cep)){
+        //TABELA
+        include __DIR__.'/includes/tabela.php'; 
+    }
     //FOOTER
     include __DIR__.'/includes/footer.php'; 
