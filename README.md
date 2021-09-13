@@ -35,6 +35,8 @@ No projeto foram utilizadas as seguintes tecnologias:
 - **BOOSTRAP**
 - **MYSQL**
 - **COMPOSER**
+- **CURL**
+- **PDO**
 
 ## 🚀 Como executar o projeto
 
@@ -46,5 +48,17 @@ No projeto foram utilizadas as seguintes tecnologias:
 
 # Clone este repositório
 $ git clone https://github.com/JulioCesarSousaMelo/PHPtest.git
+
+# Instale o Composer
+$ acesse o site https://getcomposer.org/download/
+
+# Importar o Banco de Dados 
+$ importe o script sql em database/dump.sql
+
+# Configurar o Banco de Dados 
+$ realize as alterações em app/Db/Database.php
+
+# Configurar seu Servidor Web (MAMP)
+$ altere a porta apache para 8080
 
 ```
