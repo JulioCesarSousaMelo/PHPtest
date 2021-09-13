@@ -6,14 +6,7 @@ use \App\Db\Database;
 
 class Cep{
     
-    public $id;
     public $cep;
-    public $logradouro;
-    public $bairro;
-    public $localidade;
-    public $uf;
-
-    
 
     /**
      * Método responsável por verificar se o cep já existe no banco
@@ -32,30 +25,17 @@ class Cep{
     }
 
     /**
-     * Método responsável por armazenar campos do banco em atributos da classe
-     * 
+     * Método responsável por retornar o cep do banco  
+     * @return array $array
      */
-    public function armazenarAtributos(){
+    public function retornarCepBanco(){
         $obj_database = new Database('cep');
         $array = $obj_database->select($this->cep);
 
-        $this->logradouro = $array['logradouro'];
-        $this->bairro = $array['bairro'];
-        $this->localidade = $array['localidade'];
-        $this->uf = $array['uf'];
+        return $array;
     }
 
-    /**
-     * Método responsável por exibir os atributos do cep
-     * 
-     */
-    public function exibirCEP(){
-        echo $this->cep;
-        echo $this->logradouro;
-        echo $this->bairro;
-        echo $this->localidade;
-        echo $this->uf;
-    }
+    // }
 
      /**
      * Método responsável por inserir um cep no banco
