@@ -38,7 +38,7 @@ No projeto foram utilizadas as seguintes tecnologias:
 - **CURL**
 - **PDO**
 
-## 🚀 Como executar o projeto
+## 🚀 Requisitos para executar o projeto
 
 É preciso ter PHP, MAMP, Composer(para o autoload) e um editor para trabalhar com o código, exemplo: [VSCode](https://code.visualstudio.com/).
 
