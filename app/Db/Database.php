@@ -18,7 +18,7 @@ class Database{
      * Define a tabela, instancia e conecta
      * @param string $table
      */
-    public function __contruct($table = null){
+    public function __construct($table = null){
         $this->table = $table;
         $this->setConnection();
     }
