@@ -1,7 +1,8 @@
     <!-- container -->
     </div>
-    <footer class="bg-dark text-light">
-        <p>Exemplo de CRUD</p>
+    <footer class="container mt-5">
+      <hr>
+      <p>&copy; Júlio César S. Melo</p>
     </footer>
   </body>
 </html>
