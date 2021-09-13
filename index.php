@@ -1,18 +1,49 @@
 <?php
 
-//AUTO-LOAD
-require __DIR__ .'/vendor/autoload.php';
+    //AUTO-LOAD
+    require __DIR__ .'/vendor/autoload.php';
 
-//VALIDAÇÃO DO POST
-if(isset($_POST['cep'])){
-    die('cadastrar');
-}
+    use \App\Entity\Cep;
+    use \App\WebService\ViaCEP;
 
-//HEADER
-include __DIR__.'/includes/header.php'; 
+    //VALIDAÇÃO DO POST
+    if(isset($_POST['cep'])){
+        $cep_form = $_POST['cep'];
 
-//FORMULÁRIO
-include __DIR__.'/includes/formulario.php'; 
+        $obj_cep = new Cep;
 
-//FOOTER
-include __DIR__.'/includes/footer.php'; 
+        //VERIFICAR SE JÁ EXISTE ESSE CEP NO BANCO 
+        $result = $obj_cep->verificarCEP($cep_form);
+
+        if($result){
+            $obj_cep->armazenarAtributos();
+            $obj_cep->exibirCEP();
+        }else{
+            //CONSULTAR NA API, INSERIR NO BANCO E EXIBIR UM CEP
+            $dadosCEP = ViaCEP::consultarCEP($cep_form);
+
+            // echo "<pre>";
+            // var_dump($dadosCEP);die;
+            // echo "</pre>";
+
+            if($dadosCEP){
+                $obj_cep->inserirCEP($dadosCEP);
+                $obj_cep->armazenarAtributos();
+                $obj_cep->exibirCEP();
+            }else{
+                echo "<script> 
+                        alert('CEP inválido, digite novamente !!!'); 
+                        window.location.href='index.php';
+                    </script>";
+            }
+        }
+    }
+
+    //HEADER
+    include __DIR__.'/includes/header.php'; 
+
+    //FORMULÁRIO
+    include __DIR__.'/includes/formulario.php'; 
+
+    //FOOTER
+    include __DIR__.'/includes/footer.php'; 
